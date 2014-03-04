@@ -29,7 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
-  require('dot').templateSettings.cache = false;
+  // disable cache templating
+  app.engine('dot', require('dot-emc').init({app: app, fileExtension:'dot', options:{templateSettings:{cache:false}}}).__express);
 }
 
 app.get('/', routes.index);

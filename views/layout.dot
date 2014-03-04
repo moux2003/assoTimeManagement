@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>{{=it.title}}</title>
-        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
     </head>
     <body>
         <div id="content">
