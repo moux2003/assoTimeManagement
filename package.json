@@ -1,0 +1,38 @@
+{
+  "name": "assoTimeManagement",
+  "version": "0.0.1",
+  "description": "employees time management",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moux2003/assoTimeManagement.git"
+  },
+  "keywords": [
+    "time",
+    "management",
+    "task",
+    "track"
+  ],
+  "author": "Maxime Hermouet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/moux2003/assoTimeManagement/issues"
+  },
+  "homepage": "https://github.com/moux2003/assoTimeManagement",
+  "devDependencies": {
+    "gulp": "^3.5.5",
+    "gulp-rename": "^1.1.0",
+    "gulp-uglify": "^0.2.1",
+    "gulp-concat": "^2.1.7",
+    "gulp-jshint": "^1.5.0",
+    "gulp-sass": "^0.7.1"
+  },
+  "dependencies": {
+    "express": "3.4.8",
+    "dot-emc": "^0.1.2",
+    "dot": "^1.0.2"
+  }
+}
