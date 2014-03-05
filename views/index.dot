@@ -1,5 +1,9 @@
 {{##def.content:
-    <h1>{{=it.title}}</h1>
-    <p>Welcome to {{=it.title}}</p>
+    <div class="jumbotron text-center">
+		<h1><span class="glyphicon glyphicon-lock"></span> Authentication</h1>
+
+		<a href="/login" class="btn btn-primary"><span class="glyphicon glyphicon-user"></span> Login</a> 
+		<a href="/signup" class="btn btn-info"><span class="glyphicon glyphicon-user"></span> Signup</a>
+	</div>
 #}}
 {{#def.include('layout')}}
