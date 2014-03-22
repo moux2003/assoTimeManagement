@@ -1,0 +1,19 @@
+<div role="navigation" class="navbar navbar-default {{? it.nav_class }}{{= it.nav_class }}{{?}}">
+  <div class="navbar-header">
+    <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
+    	<span class="sr-only">Toggle navigation</span>
+    	<span class="icon-bar"></span>
+    	<span class="icon-bar"></span>
+    	<span class="icon-bar"></span>
+    </button>
+    <a href="/home" class="navbar-brand">AssoTimeManagement</a>
+  </div>
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right">
+    	{{~ it.nav_links :link }}
+    		<li><a href="{{= link.href }}">{{= link.title }}</a></li>
+    	{{~}}
+      <li></li>
+    </ul>
+  </div>
+</div>

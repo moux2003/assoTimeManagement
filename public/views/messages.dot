@@ -1,0 +1,20 @@
+{{? it.messages && it.messages.success }}
+	{{~ it.messages.success :message}}
+		<div class="alert alert-success">{{= message }}</div>
+	{{~}}
+{{?}}
+{{? it.messages && it.messages.error }}
+	{{~ it.messages.error :message}}
+		<div class="alert alert-danger">{{= message }}</div>
+	{{~}}
+{{?}}
+{{? it.messages && it.messages.warning }}
+	{{~ it.messages.warning :message}}
+		<div class="alert alert-warning">{{= message }}</div>
+	{{~}}
+{{?}}
+{{? it.messages && it.messages.info }}
+	{{~ it.messages.info :message}}
+		<div class="alert alert-info">{{= message }}</div>
+	{{~}}
+{{?}}

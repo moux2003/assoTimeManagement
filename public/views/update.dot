@@ -1,0 +1,62 @@
+{{##def.content:
+{{? it.user.picture }}
+<img src="{{= it.user.picture }}" alt="{{= it.user.first_name }}" class="img-circle img-responsive"/>
+{{?}}
+<div class="login-container">
+	<form action="/user/update" method="POST" class="form-horizontal form-signin">
+	<h2 class="form-signin-heading">Update Information</h2>
+<br/>
+<div class="form-group">
+	<label for="first_name" class="col-sm-3 control-label">First name</label>
+<div class="col-sm-9">
+	<input type="text" id="first_name" placeholder="First name" required="" autofocus="" autocomplete="off" name="first_name" value="{{= it.user.first_name }}" class="form-control"/>
+</div>
+</div>
+<div class="form-group">
+	<label for="last_name" class="col-sm-3 control-label">Last name</label>
+<div class="col-sm-9">
+	<input type="text" id="last_name" placeholder="Last name" required="" autofocus="" autocomplete="off" name="last_name" value="{{= it.user.last_name }}" class="form-control"/>
+</div>
+</div>
+<div class="form-group">
+   <label for="email_address" class="col-sm-3 control-label">Email</label>
+<div class="col-sm-9">
+	<input type="text" id="email_address" placeholder="Email address" required="" autofocus="" autocomplete="off" name="email_address" value="{{= it.user.email_address }}" class="form-control"/>
+</div>
+</div>
+<button type="submit" class="btn btn-lg btn-primary btn-block sign-in update-user">Update</button>
+</form>
+
+<form action="/user/password" method="POST" class="form-horizontal form-signin">
+<h2 class="form-signin-heading">Update Password</h2>
+<br/>
+<div class="form-group">
+	<label for="old_password" class="col-sm-3 control-label">Current</label>
+<div class="col-sm-9">
+	<input type="password" id="old_password" placeholder="Old Password" required="" autofocus="" autocomplete="off" name="old_password" class="form-control"/>
+</div>
+</div>
+<div class="form-group">
+	<label for="new_password" class="col-sm-3 control-label">New Password</label>
+<div class="col-sm-9">
+	<input type="password" id="new_password" placeholder="New Password" required="" autofocus="" autocomplete="off" name="new_password" class="form-control"/>
+</div>
+</div>
+<div class="form-group">
+	<label for="confirm_password" class="col-sm-3 control-label">Confirm Password</label>
+<div class="col-sm-9">
+	<input type="password" id="confirm_password" placeholder="Confirm New Password" required="" autofocus="" autocomplete="off" name="confirm_password" class="form-control"/>
+</div>
+</div>
+<button type="submit" class="btn btn-lg btn-primary btn-block sign-in update-user">Update </button>
+</form>
+
+<br/>
+<br/>
+
+<form action="/user/delete" method="POST" class="form-signin">
+	<button type="submit" class="btn btn-lg btn-danger btn-block sign-in">Delete User</button>
+</form>
+</div>
+#}}
+{{# def.include('layout') }}

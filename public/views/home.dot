@@ -1,0 +1,4 @@
+{{##def.content:
+<h1>Welcome {{= it.user.first_name }} {{= it.user.last_name }}</h1>
+#}}
+{{# def.include('layout') }}
