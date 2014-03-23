@@ -1,0 +1,15 @@
+{{##def.content:
+<section class="tasks">
+	<h1>Tasks administration</h1>
+	<div class="main-content">my content</div>
+	<form action="/admin/tasks" method="POST" class="form-horizontal form-task">
+		{{= it.form }}
+		<div class="form-group">
+		    <div class="col-sm-offset-2">
+		      <button type="submit" class="btn btn-sm btn-primary">Add</button>
+		    </div>
+	  	</div>
+	</form>
+</section>
+#}}
+{{# def.include('../layout') }}

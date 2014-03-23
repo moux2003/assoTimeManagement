@@ -9,8 +9,10 @@
     <title>{{= it.title }} - AssoTimeManagement</title>
     <link rel="stylesheet" href="/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="/css/vendor/yeti.bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    {{# def.scripts || "" }}
     {{? it.styles }}
       {{~ it.styles :style }}
         <link rel='stylesheet' href='{{= style }}.css}'>

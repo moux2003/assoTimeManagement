@@ -6,9 +6,19 @@
     	<span class="icon-bar"></span>
     	<span class="icon-bar"></span>
     </button>
-    <a href="/home" class="navbar-brand">AssoTimeManagement</a>
+    <a href="/" class="navbar-brand">AssoTimeManagement</a>
   </div>
   <div class="collapse navbar-collapse">
+    {{? it.user && it.user.username == 'admin' }}
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configure <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/admin/tasks">Tasks</a></li>
+          </ul>
+        </li>
+      </ul>
+    {{?}}
     <ul class="nav navbar-nav navbar-right">
     	{{~ it.nav_links :link }}
     		<li><a href="{{= link.href }}">{{= link.title }}</a></li>

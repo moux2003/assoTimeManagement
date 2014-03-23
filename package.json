@@ -1,31 +1,33 @@
 {
-  "name": "starterpack.js",
-  "version": "0.1.0",
-  "readmeFilename": "README.md",
-  "description": "starterpack.js",
-  "main": "router.js",
-  "dependencies": {
-    "express": "3.4.*",
-    "dot": "1.0.*",
-    "sequelize": "1.7.*",
-    "passport-local": "1.*",
-    "passport": "0.2.*",
-    "bcrypt": "0.7.*",
-    "async": "0.2.*",
-    "mariasql": "0.1.*",
-    "connect-flash": "0.1.*",
-    "dot-emc": "0.1.*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/moux2003/starterpack.js"
-  },
-  "author": "Maxime Hermouet",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/moux2003/starterpack.js/issues"
-  },
-  "devDependencies": {
-    "gulp": "*"
-  }
+    "name": "starterpack.js",
+    "version": "0.1.0",
+    "readmeFilename": "README.md",
+    "description": "starterpack.js",
+    "main": "router.js",
+    "dependencies": {
+        "express": "3.4.*",
+        "dot": "1.0.*",
+        "sequelize": "1.7.*",
+        "passport-local": "1.*",
+        "passport": "0.2.*",
+        "bcrypt": "0.7.*",
+        "async": "0.2.*",
+        "mariasql": "0.1.*",
+        "connect-flash": "0.1.*",
+        "dot-emc": "0.1.*",
+        "forms": "^0.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/moux2003/starterpack.js"
+    },
+    "author": "Maxime Hermouet",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/moux2003/starterpack.js/issues"
+    },
+    "devDependencies": {
+        "gulp": "*",
+        "gulp-sass": "*"
+    }
 }

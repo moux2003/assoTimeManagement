@@ -153,6 +153,6 @@ exports.localDelete = function(req, res) {
 // Local authentication redirects
 exports.localAuthentication = passport.authenticate('local', {
     failureRedirect: '/login',
-    successRedirect: '/home',
+    successRedirect: '/',
     failureFlash: true
 });

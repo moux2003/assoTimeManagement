@@ -6,7 +6,7 @@
  * nav_links = array of links to appear in the navigation bar with title and href
 
     nav_links: [
-      { title: 'Home', href: '/home'},
+      { title: 'Home', href: '/'},
       { title: 'Update User', href: '/user/update'},
       { title: 'Logout', href: '/logout'}
     ]
@@ -30,13 +30,10 @@ exports.home = function(req, res) {
         nav_class: 'navbar-home',
         nav_links: [{
             title: 'Home',
-            href: '/home'
+            href: '/'
         }, {
             title: 'Update User',
             href: '/user/update'
-        }, {
-            title: 'GitHub Repo',
-            href: 'https://github.com/moux2003/starterpack.js'
         }, {
             title: 'Logout',
             href: '/logout'
@@ -52,14 +49,11 @@ exports.login = function(req, res) {
         nav_class: 'navbar-login',
         nav_links: [{
             title: 'Home',
-            href: '/home'
+            href: '/'
         }, {
             title: 'Create User',
             href: '/create'
-        }, {
-            title: 'GitHub Repo',
-            href: 'https://github.com/moux2003/starterpack.js'
-        }, ],
+        }],
         user: req.user
     });
 };
@@ -71,10 +65,7 @@ exports.createUser = function(req, res) {
         nav_links: [{
             title: 'Login',
             href: '/login'
-        }, {
-            title: 'GitHub Repo',
-            href: 'https://github.com/moux2003/starterpack.js'
-        }, ]
+        }]
     });
 };
 
@@ -84,13 +75,10 @@ exports.updateUser = function(req, res) {
         messages: req.flash(),
         nav_links: [{
             title: 'Home',
-            href: '/home'
+            href: '/'
         }, {
             title: 'Update User',
             href: '/user/update'
-        }, {
-            title: 'GitHub Repo',
-            href: 'https://github.com/moux2003/starterpack.js'
         }, {
             title: 'Logout',
             href: '/logout'

@@ -1,0 +1,14 @@
+[{
+    "prefix": "/admin",
+    "controller": "task",
+    "routes": [{
+        "path": "/tasks",
+        "action": "tasks",
+        "security": "administrator"
+    }, {
+        "path": "/tasks",
+        "action": "taskCreate",
+        "security": "administrator",
+        "method": "post"
+    }]
+}]

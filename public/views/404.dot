@@ -3,7 +3,7 @@
   <div class="jumbotron">
     <h1>404</h1>
     <p>Well this is embarassing. It looks like the page you're looking for isn't here. Feel free to look around if you want. When you're done the button below will take you back to the home page.</p>
-    <a href="/home" role="button" class="btn btn-lg btn-primary">Home »</a>
+    <a href="/" role="button" class="btn btn-lg btn-primary">Home »</a>
   </div>
 </div>
 #}}
