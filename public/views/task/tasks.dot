@@ -1,7 +1,29 @@
 {{##def.content:
 <section class="tasks">
 	<h1>Tasks administration</h1>
-	<div class="main-content">my content</div>
+	<hr/>
+	<div class="main-content">
+		{{? it.tasks }}
+		<table class="table table-hover">
+			<thead>
+				<th>Code</th>
+				<th>Description</th>
+				<th>Action</th>
+			</thead>
+			{{~ it.tasks :task:idx}}
+			<tr>
+				<td>{{= task.code }}</td>
+				<td>{{= task.description }}</td>
+				<td>
+					<a href="/admin/tasks/{{= task.code }}" class="btn btn-danger btn-xs" role="button">
+						<span class="glyphicon glyphicon-trash"></span>
+					</a>
+				</td>
+			</tr>
+			{{~}}
+		</table>
+		{{?}}
+	</div>
 	<form action="/admin/tasks" method="POST" class="form-horizontal form-task">
 		{{= it.form }}
 		<div class="form-group">

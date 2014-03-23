@@ -44,6 +44,7 @@ module.exports = function() {
 
     // include models here
     sql.User = require('../models/user');
+    sql.Task = require('../models/task');
 
     // create user admin with password admin if necessary
     bcrypt.genSalt(10, function(err, salt) {

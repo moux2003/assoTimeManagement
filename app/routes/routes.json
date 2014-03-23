@@ -10,5 +10,9 @@
         "action": "taskCreate",
         "security": "administrator",
         "method": "post"
+    }, {
+        "path": "/tasks/:code",
+        "action": "taskDelete",
+        "security": "administrator"
     }]
 }]

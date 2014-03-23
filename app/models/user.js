@@ -37,8 +37,6 @@ module.exports = model = sequelize.define('User', {
             },
         }
     }
-}, {
-    underscored: true
 });
 
 model.sync();
