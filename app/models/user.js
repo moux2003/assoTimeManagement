@@ -23,7 +23,6 @@ module.exports = model = sequelize.define('User', {
     },
     username: {
         type: Sequelize.STRING,
-        primaryKey: true,
         allowNull: false,
         unique: true
     },

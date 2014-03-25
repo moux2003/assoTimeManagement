@@ -1,0 +1,49 @@
+{{## def.styles:
+	<link rel='stylesheet' href='/js/pickadate/themes/default.css'>
+	<link rel='stylesheet' href='/js/pickadate/themes/default.date.css'>
+#}}
+
+{{## def.scripts:
+	<script src="/js/pickadate/picker.js"></script>
+	<script src="/js/pickadate/picker.date.js"></script>
+	<script src="/js/activity.js"></script>
+#}}
+
+{{## def.content:
+<section class="activities">
+	<h1>Tasks administration</h1>
+	<hr/>
+	<div class="main-content">
+		{{? it.activities }}
+		<table class="table table-hover">
+			<thead>
+				<th>Date</th>
+				<th>Duration</th>
+				<th>Action</th>
+			</thead>
+			{{~ it.activities :activity:idx}}
+			<tr>
+				<td>{{= activity.date }}</td>
+				<td>{{= activity.duration }}</td>
+				<td>
+					<a href="/admin/activities/{{= activity.id }}" class="btn btn-danger btn-xs" role="button">
+						<span class="glyphicon glyphicon-trash"></span>
+					</a>
+				</td>
+			</tr>
+			{{~}}
+		</table>
+		{{?}}
+	</div>
+	<form action="/admin/activities" method="POST" class="form-horizontal form-activity">
+		{{= it.form }}
+		<div class="form-group">
+		    <div class="col-sm-offset-2">
+		      <button type="submit" class="btn btn-sm btn-primary">Add</button>
+		    </div>
+	  	</div>
+	</form>
+</section>
+#}}
+
+{{# def.include('../layout') }}

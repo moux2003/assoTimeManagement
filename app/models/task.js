@@ -3,12 +3,12 @@ var sequelize = module.parent.exports.sequelize,
 
 module.exports = model = sequelize.define('Task', {
     code: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         primaryKey: true,
         unique: true,
         allowNull: false,
         validate: {
-            len: [1, 5]
+            len: [1, 50]
         }
     },
     description: {

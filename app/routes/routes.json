@@ -15,4 +15,21 @@
         "action": "taskDelete",
         "security": "administrator"
     }]
+}, {
+    "prefix": "/admin",
+    "controller": "activity",
+    "routes": [{
+        "path": "/activities",
+        "action": "index",
+        "security": "administrator"
+    }, {
+        "path": "/activities",
+        "action": "activityCreate",
+        "security": "administrator",
+        "method": "post"
+    }, {
+        "path": "/activities/:code",
+        "action": "activityDelete",
+        "security": "administrator"
+    }]
 }]

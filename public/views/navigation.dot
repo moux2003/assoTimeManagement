@@ -19,6 +19,14 @@
         </li>
       </ul>
     {{?}}
+    <ul class="nav navbar-nav navbar-left">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/admin/activities">Activities</a></li>
+        </ul>
+      </li>
+    </ul>
     <ul class="nav navbar-nav navbar-right">
     	{{~ it.nav_links :link }}
     		<li><a href="{{= link.href }}">{{= link.title }}</a></li>
