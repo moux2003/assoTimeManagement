@@ -10,8 +10,8 @@
 #}}
 
 {{## def.content:
-<section class="activities">
-	<h1>Tasks administration</h1>
+<section class="activities crud">
+	<h1>Track your activities</h1>
 	<hr/>
 	<div class="main-content">
 		{{? it.activities }}
@@ -23,7 +23,7 @@
 			</thead>
 			{{~ it.activities :activity:idx}}
 			<tr>
-				<td>{{= activity.date }}</td>
+				<td>{{= it.dot.formatDate(activity.date) }}</td>
 				<td>{{= activity.duration }}</td>
 				<td>
 					<a href="/admin/activities/{{= activity.id }}" class="btn btn-danger btn-xs" role="button">
@@ -46,4 +46,4 @@
 </section>
 #}}
 
-{{# def.include('../layout') }}
+{{# def.include('~/layout') }}

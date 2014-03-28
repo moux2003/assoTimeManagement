@@ -4,7 +4,18 @@ var express = require('express'),
     http = require('http'),
     app_routes = require('./app/routes/application'),
     auth_routes = require('./app/routes/authentication'),
-    router = require('./app/routes/router').bootstrap(app);
+    router = require('./app/routes/router')
+    dotHelpers = require('./app/dot/helpers');
+
+app.use(function(req, res, next) {
+    res.locals = {
+        dot: dotHelpers,
+        messages: req.flash()
+    };
+    next();
+});
+
+router.bootstrap(app);
 
 app.get('/login', app_routes.login);
 app.get('/', auth_routes.isAuthenticated, app_routes.home);

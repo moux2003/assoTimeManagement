@@ -29,18 +29,7 @@ exports.tasksAction = function(req, res) {
     Task.findAll().success(function(tasks) {
         res.render('task/tasks', {
             title: 'Tasks',
-            messages: req.flash(),
             nav_class: 'navbar-tasks',
-            nav_links: [{
-                title: 'Home',
-                href: '/'
-            }, {
-                title: 'Update User',
-                href: '/user/update'
-            }, {
-                title: 'Logout',
-                href: '/logout'
-            }],
             user: req.user,
             form: getNewTaskForm().toHTML(),
             tasks: tasks
@@ -66,12 +55,11 @@ exports.taskCreateAction = function(req, res) {
                             description: form.data.description
                         }).success(function() {
                             req.flash('success', 'Task updated.')
-                            exports.tasksAction(req, res);
                         })
                     } else {
                         req.flash('success', 'Task created.')
-                        exports.tasksAction(req, res);
                     }
+                    res.redirect('/admin/tasks');
                 })
         },
         error: function(form) {
@@ -80,18 +68,7 @@ exports.taskCreateAction = function(req, res) {
             Task.findAll().success(function(tasks) {
                 res.render('task/tasks', {
                     title: 'Tasks',
-                    messages: req.flash(),
                     nav_class: 'navbar-tasks',
-                    nav_links: [{
-                        title: 'Home',
-                        href: '/'
-                    }, {
-                        title: 'Update User',
-                        href: '/user/update'
-                    }, {
-                        title: 'Logout',
-                        href: '/logout'
-                    }],
                     user: req.user,
                     form: form.toHTML(),
                     tasks: tasks

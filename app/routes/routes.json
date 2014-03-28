@@ -21,15 +21,15 @@
     "routes": [{
         "path": "/activities",
         "action": "index",
-        "security": "administrator"
+        "security": "authenticated"
     }, {
         "path": "/activities",
         "action": "activityCreate",
-        "security": "administrator",
+        "security": "authenticated",
         "method": "post"
     }, {
-        "path": "/activities/:code",
+        "path": "/activities/:id",
         "action": "activityDelete",
-        "security": "administrator"
+        "security": "authenticated"
     }]
 }]

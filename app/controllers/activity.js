@@ -9,7 +9,7 @@ function getNewActivityForm() {
         date: fields.date({
             required: true,
             errorAfterField: true,
-            validators: [validators.date],
+            // validators: [customValidators.dateFr],
             cssClasses: {
                 label: ['control-label'],
                 field: ['form-group']
@@ -18,7 +18,7 @@ function getNewActivityForm() {
         duration: fields.string({
             required: true,
             errorAfterField: true,
-            validators: [customValidators.duration],
+            // validators: [customValidators.duration],
             cssClasses: {
                 label: ['control-label'],
                 field: ['form-group']
@@ -35,18 +35,7 @@ exports.indexAction = function(req, res) {
     }).success(function(activities) {
         res.render('activity/index', {
             title: 'Activities',
-            messages: req.flash(),
             nav_class: 'navbar-tasks',
-            nav_links: [{
-                title: 'Home',
-                href: '/'
-            }, {
-                title: 'Update User',
-                href: '/user/update'
-            }, {
-                title: 'Logout',
-                href: '/logout'
-            }],
             user: req.user,
             form: getNewActivityForm().toHTML(),
             activities: activities
@@ -55,68 +44,58 @@ exports.indexAction = function(req, res) {
 }
 
 exports.activityCreateAction = function(req, res) {
-    var form = getNewTaskForm();
-
+    var form = getNewActivityForm();
+    console.log('posted')
     form.handle(req, {
         success: function(form) {
             // there is a request and the form is valid
             // form.data contains the submitted data
-            Task.findOrCreate({
-                code: form.data.code
-            }, {
-                description: form.data.description
+            Activity.create({
+                date: form.data.date,
+                duration: form.data.duration // TODO: format duration in minutes or forms : formatter ?
             })
-                .success(function(task, created) {
-                    if (!created) {
-                        task.updateAttributes({
-                            description: form.data.description
-                        }).success(function() {
-                            req.flash('success', 'Task updated.')
-                            exports.tasksAction(req, res);
-                        })
+                .done(function(error, activity) {
+                    if (error) {
+                        console.log(error)
+                        req.flash('error', "couldn't save activity.");
                     } else {
-                        req.flash('success', 'Task created.')
-                        exports.tasksAction(req, res);
+                        activity.setUser(req.user);
+                        req.flash('success', 'Activity added.');
                     }
-                })
+                    res.redirect('/admin/activities');
+                });
         },
         error: function(form) {
             // the data in the request didn't validate,
             // calling form.toHTML() again will render the error messages
-            Task.findAll().success(function(tasks) {
-                res.render('task/tasks', {
-                    title: 'Tasks',
-                    messages: req.flash(),
+            Activity.findAll({
+                where: {
+                    UserId: req.user.uuid
+                }
+            }).success(function(activities) {
+                console.log('error2')
+                res.render('activity/index', {
+                    title: 'Activities',
                     nav_class: 'navbar-tasks',
-                    nav_links: [{
-                        title: 'Home',
-                        href: '/'
-                    }, {
-                        title: 'Update User',
-                        href: '/user/update'
-                    }, {
-                        title: 'Logout',
-                        href: '/logout'
-                    }],
                     user: req.user,
                     form: form.toHTML(),
-                    tasks: tasks
+                    activities: activities
                 });
             });
         },
         empty: function(form) {
-            exports.tasksAction(req, res);
+            exports.indexAction(req, res);
         }
     });
 }
 
 exports.activityDeleteAction = function(req, res) {
-    Task.destroy({
-        code: req.params.code
+    Activity.destroy({
+        id: req.params.id
     }).success(function(affectedRows) {
         if (affectedRows > 0) {
-            req.flash('success', 'Task ' + req.params.code + ' deleted.');
+            req.flash('success', 'Activity deleted.');
         }
-        res.redirect('/admin/tasks');
+        res.redirect('/admin/activities');
     })
 }

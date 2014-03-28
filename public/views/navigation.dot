@@ -19,6 +19,7 @@
         </li>
       </ul>
     {{?}}
+    {{? it.user }}
     <ul class="nav navbar-nav navbar-left">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actions <b class="caret"></b></a>
@@ -28,10 +29,11 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    	{{~ it.nav_links :link }}
-    		<li><a href="{{= link.href }}">{{= link.title }}</a></li>
-    	{{~}}
+      <li><a href="/">Home</a></li>
+      <li><a href="/user/update">Update User</a></li>
+      <li><a href="/logout">Logout</a></li>
       <li></li>
     </ul>
+    {{?}}
   </div>
 </div>

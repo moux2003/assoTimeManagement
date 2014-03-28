@@ -2,7 +2,9 @@ var LPO = LPO || {};
 LPO.Activity = function() {
 
     var init = function() {
-        $('#id_date').pickadate();
+        $('#id_date').pickadate({
+            format: 'yyyy-mm-dd'
+        });
     };
 
     var oPublic = {

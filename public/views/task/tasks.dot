@@ -1,5 +1,5 @@
 {{##def.content:
-<section class="tasks">
+<section class="tasks crud">
 	<h1>Tasks administration</h1>
 	<hr/>
 	<div class="main-content">
