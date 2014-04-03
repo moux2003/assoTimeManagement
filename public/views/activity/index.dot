@@ -18,12 +18,14 @@
 		<table class="table table-hover">
 			<thead>
 				<th>Date</th>
+				<th>Task</th>
 				<th>Duration</th>
 				<th>Action</th>
 			</thead>
 			{{~ it.activities :activity:idx}}
 			<tr>
 				<td>{{= it.dot.formatDate(activity.date) }}</td>
+				<td>{{= activity.task.description }}</td>
 				<td>{{= activity.duration }}</td>
 				<td>
 					<a href="/admin/activities/{{= activity.id }}" class="btn btn-danger btn-xs" role="button">
